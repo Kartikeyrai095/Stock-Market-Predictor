@@ -1,0 +1,11 @@
+# Minimal requirements for the Dashboard only (deployed on Render)
+# Heavy ML packages (TensorFlow, PyTorch etc.) are intentionally excluded —
+# they are only needed by the GitHub Actions AI engine, not the UI.
+
+flask>=3.0.0
+flask-socketio>=5.3.6
+eventlet>=0.35.0
+SQLAlchemy>=2.0.0
+pandas>=2.1.0
+python-dotenv>=1.0.0
+gunicorn>=22.0.0

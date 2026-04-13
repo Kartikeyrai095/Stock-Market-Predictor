@@ -18,6 +18,40 @@ from utils.logger import get_logger
 
 logger = get_logger("CI_Runner")
 
+def _export_market_snapshot(tickers):
+    """Write a quick market snapshot JSON so the dashboard overview cards update."""
+    try:
+        import yfinance as yf
+        indices = {
+            "^NSEI":    "NIFTY_50",
+            "^BSESN":   "SENSEX",
+            "^NSEBANK": "BANK_NIFTY",
+        }
+        snapshot_indices = {}
+        for symbol, name in indices.items():
+            try:
+                ticker = yf.Ticker(symbol)
+                hist = ticker.history(period="2d")
+                if len(hist) >= 2:
+                    today = float(hist['Close'].iloc[-1])
+                    prev  = float(hist['Close'].iloc[-2])
+                    change = round((today - prev) / prev * 100, 2)
+                    snapshot_indices[name] = {"price": round(today, 2), "change": change}
+            except Exception:
+                pass
+
+        output = {
+            "generated_at": datetime.now().isoformat(),
+            "indices": snapshot_indices,
+        }
+        os.makedirs("data", exist_ok=True)
+        with open("data/market_snapshot.json", "w") as f:
+            json.dump(output, f, indent=2)
+        logger.info("Market snapshot written to data/market_snapshot.json")
+    except Exception as e:
+        logger.warning(f"Could not write market snapshot: {e}")
+
+
 def main():
     run_mode = os.environ.get("RUN_MODE", "post_market")
     tickers_env = os.environ.get("TICKERS", "RELIANCE.NS,TCS.NS,HDFCBANK.NS,INFY.NS,ICICIBANK.NS")
@@ -33,6 +67,9 @@ def main():
     # Ensure dirs exist
     os.makedirs("data", exist_ok=True)
     os.makedirs("data/logs", exist_ok=True)
+
+    # ─── Always write a fresh market snapshot (for dashboard index cards) ───
+    _export_market_snapshot(tickers)
 
     # Import agents (deferred to show cleaner log order)
     from agents.data_collection import DataCollectionAgent

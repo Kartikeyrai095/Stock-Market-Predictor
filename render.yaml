@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: stock-market-ai-dashboard
+    runtime: python
+    buildCommand: pip install -r requirements_dashboard.txt
+    startCommand: gunicorn --worker-class eventlet -w 1 --chdir dashboard app:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: SECRET_KEY
+        generateValue: true   # Render auto-generates a secure key
+    plan: free
+    autoDeploy: true          # Auto redeploys whenever you push to GitHub

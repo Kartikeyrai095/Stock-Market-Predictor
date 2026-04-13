@@ -4,14 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchOverview();
     fetchRecommendations();
     fetchSentiment();
+    fetchSystemStatus();
 
-    // Auto refresh every 60 seconds
+    // Auto refresh every 5 minutes
     setInterval(() => {
         fetchOverview();
         fetchRecommendations();
         fetchSentiment();
-        document.getElementById('sync-time').innerText = new Date().toLocaleTimeString();
-    }, 60000);
+        fetchSystemStatus();
+    }, 300000);
 });
 
 async function fetchOverview() {
@@ -122,5 +123,28 @@ async function fetchSentiment() {
         }
     } catch (error) {
         console.error("Failed to fetch sentiment", error);
+    }
+}
+
+async function fetchSystemStatus() {
+    try {
+        const response = await fetch('/api/system_status');
+        const result = await response.json();
+        
+        if (result.status === 'success') {
+            const el = document.getElementById('sync-time');
+            if (el) {
+                const raw = result.last_run_at;
+                if (raw && raw !== 'Never') {
+                    // Format the ISO timestamp nicely
+                    const dt = new Date(raw);
+                    el.innerText = dt.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'short', timeStyle: 'short' });
+                } else {
+                    el.innerText = '—';
+                }
+            }
+        }
+    } catch (error) {
+        console.error("Failed to fetch system status", error);
     }
 }

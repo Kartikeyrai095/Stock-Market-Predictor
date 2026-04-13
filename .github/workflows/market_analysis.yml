@@ -2,22 +2,25 @@ name: 📈 AI Market Analysis Engine
 
 on:
   schedule:
-    # ─── Runs at 9:15 AM IST = 3:45 AM UTC (Mon-Fri) ───
-    - cron: '45 3 * * 1-5'  # Pre-market data fetch
-    # ─── Runs at 3:35 PM IST = 10:05 AM UTC (Mon-Fri, after market close) ───
-    - cron: '5 10 * * 1-5'  # Post-market full analysis
+    # ─── 9:15 AM IST = 3:45 AM UTC (Mon-Fri) — Pre-market data fetch ───
+    - cron: '45 3 * * 1-5'
+    # ─── 3:35 PM IST = 10:05 AM UTC (Mon-Fri) — Post-market full AI analysis ───
+    - cron: '5 10 * * 1-5'
 
-  # Allows manual trigger from the GitHub web UI
+  # Manual trigger from GitHub Actions tab
   workflow_dispatch:
     inputs:
       tickers:
-        description: 'Comma-separated tickers to analyze (e.g. RELIANCE.NS,TCS.NS)'
+        description: 'Comma-separated tickers (e.g. RELIANCE.NS,TCS.NS)'
         required: false
         default: 'RELIANCE.NS,TCS.NS,HDFCBANK.NS,INFY.NS,ICICIBANK.NS'
       mode:
-        description: 'Run mode (pre_market or post_market)'
+        description: 'Mode: pre_market or post_market'
         required: false
         default: 'post_market'
+
+permissions:
+  contents: write   # Needed to commit results back to repo
 
 env:
   PYTHONUNBUFFERED: "1"
@@ -27,28 +30,27 @@ jobs:
   analyze:
     name: 🤖 Run AI Agents
     runs-on: ubuntu-latest
-    timeout-minutes: 50   # Generous limit — well within the 60-min GitHub Actions job limit
+    timeout-minutes: 50
 
     steps:
-      # Step 1: Checkout repo
       - name: 📦 Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-      # Step 2: Set up Python
       - name: 🐍 Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
 
-      # Step 3: Install dependencies (uses pip cache to speed up runs)
       - name: 📚 Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Restore the SQLite database from cache (persists data between runs)
-      - name: 💾 Restore database cache
+      - name: 💾 Restore SQLite database cache
         uses: actions/cache@v4
         with:
           path: data/market.db
@@ -56,29 +58,43 @@ jobs:
           restore-keys: |
             market-db-${{ runner.os }}-
 
-      # Step 5: Run the AI Pipeline
       - name: 🚀 Execute AI Analysis Pipeline
         run: python3 ci_runner.py
         env:
-          # Determine run mode — pre-market just fetches data, post-market does full analysis
           RUN_MODE: ${{ github.event.inputs.mode || (github.event.schedule == '45 3 * * 1-5' && 'pre_market' || 'post_market') }}
           TICKERS: ${{ github.event.inputs.tickers || 'RELIANCE.NS,TCS.NS,HDFCBANK.NS,INFY.NS,ICICIBANK.NS,BAJFINANCE.NS,AXISBANK.NS' }}
 
-      # Step 6: Upload results as artifact (access from GitHub UI)
-      - name: 📊 Upload analysis results
-        uses: actions/upload-artifact@v4
-        if: always()  # Upload even if there were partial failures
-        with:
-          name: analysis-results-${{ github.run_number }}
-          path: |
-            data/recommendations.json
-            data/logs/
-          retention-days: 7
+      # ─── KEY STEP: Commit results back to repo so Render dashboard can read them ───
+      - name: 📤 Commit AI results to repository
+        run: |
+          git config --global user.name  "AI Engine Bot"
+          git config --global user.email "ai-engine@noreply.github.com"
 
-      # Step 7: Save the updated database to cache
-      - name: 💾 Save database cache
+          # Stage only the data output files, never the database or models
+          git add data/recommendations.json data/market_snapshot.json || true
+
+          # Only commit if there are changes
+          if git diff --cached --quiet; then
+            echo "No new results to commit."
+          else
+            TIMESTAMP=$(date +'%Y-%m-%d %H:%M IST')
+            git commit -m "🤖 Auto: AI analysis results — $TIMESTAMP"
+            git push
+          fi
+
+      - name: 💾 Save SQLite database cache
         uses: actions/cache/save@v4
         if: always()
         with:
           path: data/market.db
           key: market-db-${{ runner.os }}-${{ github.run_number }}
+
+      - name: 📊 Upload results artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: analysis-results-${{ github.run_number }}
+          path: |
+            data/recommendations.json
+            data/market_snapshot.json
+          retention-days: 14
