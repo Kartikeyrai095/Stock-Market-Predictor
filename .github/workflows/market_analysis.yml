@@ -82,6 +82,15 @@ jobs:
             git push
           fi
 
+      - name: 🚀 Trigger Render Deployment
+        run: |
+          if [ -n "${{ secrets.RENDER_DEPLOY_HOOK }}" ]; then
+            curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
+            echo "Render deployment triggered successfully!"
+          else
+            echo "No Render Deploy Hook configured. Skipping frontend deploy."
+          fi
+
       - name: 💾 Save SQLite database cache
         uses: actions/cache/save@v4
         if: always()
