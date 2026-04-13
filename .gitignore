@@ -1,0 +1,23 @@
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Data and models (they are large, store in Actions cache, not Git)
+data/market.db
+data/models/
+data/cache/
+
+# Environment variables (never commit secrets)
+.env
+*.env
+
+# Keep the logs directory but not its contents
+data/logs/*
+!data/logs/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db

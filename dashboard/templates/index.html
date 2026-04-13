@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity | AI Stock Market Intelligence</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="ph ph-sparkle-fill"></i>
+            <span>Antigravity.AI</span>
+        </div>
+        <nav>
+            <a href="#" class="nav-item active"><i class="ph ph-squares-four"></i> Dashboard</a>
+            <a href="#" class="nav-item"><i class="ph ph-chart-line-up"></i> Strategies</a>
+            <a href="#" class="nav-item"><i class="ph ph-brain"></i> Agent Status</a>
+            <a href="#" class="nav-item"><i class="ph ph-newspaper"></i> News Intel</a>
+            <a href="#" class="nav-item"><i class="ph ph-gear"></i> Settings</a>
+        </nav>
+        <div class="agent-status-panel">
+            <h4>System Health</h4>
+            <div class="status-indicator">
+                <span class="dot active"></span>
+                <span class="text">All 10 Agents Online</span>
+            </div>
+            <div class="last-sync">Last sync: <span id="sync-time">Just now</span></div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+        <header>
+            <div class="page-title">
+                <h1>Market Overview <span>NSE/BSE</span></h1>
+                <p>AI-driven quantitative analysis for the Indian Market</p>
+            </div>
+            <div class="header-actions">
+                <div class="search-bar">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Search NSE/BSE stocks...">
+                </div>
+                <button class="btn-primary"><i class="ph ph-arrows-clockwise"></i> Run Analysis</button>
+            </div>
+        </header>
+
+        <!-- Market Ticker -->
+        <section class="market-ticker grid-3" id="market-overview">
+            <!-- Populated via JS -->
+            <div class="glass-card skeleton"></div>
+            <div class="glass-card skeleton"></div>
+            <div class="glass-card skeleton"></div>
+        </section>
+
+        <div class="main-grid">
+            <!-- Left Column -->
+            <div class="left-col">
+                <section class="recommendations">
+                    <div class="section-header">
+                        <h2><i class="ph ph-target"></i> Live AI Recommendations</h2>
+                        <span class="badge pulse">Live</span>
+                    </div>
+                    <div class="rec-list" id="rec-list">
+                        <!-- Populated via JS -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-col">
+                <!-- Portfolio / AI Confidence -->
+                <section class="glass-card full-card">
+                    <div class="section-header">
+                        <h2><i class="ph ph-chart-polar"></i> Model Conviction</h2>
+                    </div>
+                    <div class="conviction-meter">
+                        <div class="meter-fill" style="width: 78%;"></div>
+                        <span class="meter-text">78% Bearish -> Bullish</span>
+                    </div>
+                    <p class="sub-text">Based on ensemble (LSTM + Transformer) across NIFTY 50</p>
+                </section>
+
+                <!-- News Sentiment -->
+                <section class="glass-card full-card news-section">
+                    <div class="section-header">
+                        <h2><i class="ph ph-newspaper-clipping"></i> FinBERT Sentiment</h2>
+                    </div>
+                    <div class="news-list" id="news-list">
+                        <!-- Populated via JS -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

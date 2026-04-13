@@ -1,0 +1,84 @@
+name: 📈 AI Market Analysis Engine
+
+on:
+  schedule:
+    # ─── Runs at 9:15 AM IST = 3:45 AM UTC (Mon-Fri) ───
+    - cron: '45 3 * * 1-5'  # Pre-market data fetch
+    # ─── Runs at 3:35 PM IST = 10:05 AM UTC (Mon-Fri, after market close) ───
+    - cron: '5 10 * * 1-5'  # Post-market full analysis
+
+  # Allows manual trigger from the GitHub web UI
+  workflow_dispatch:
+    inputs:
+      tickers:
+        description: 'Comma-separated tickers to analyze (e.g. RELIANCE.NS,TCS.NS)'
+        required: false
+        default: 'RELIANCE.NS,TCS.NS,HDFCBANK.NS,INFY.NS,ICICIBANK.NS'
+      mode:
+        description: 'Run mode (pre_market or post_market)'
+        required: false
+        default: 'post_market'
+
+env:
+  PYTHONUNBUFFERED: "1"
+  TZ: "Asia/Kolkata"
+
+jobs:
+  analyze:
+    name: 🤖 Run AI Agents
+    runs-on: ubuntu-latest
+    timeout-minutes: 50   # Generous limit — well within the 60-min GitHub Actions job limit
+
+    steps:
+      # Step 1: Checkout repo
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python
+      - name: 🐍 Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # Step 3: Install dependencies (uses pip cache to speed up runs)
+      - name: 📚 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Step 4: Restore the SQLite database from cache (persists data between runs)
+      - name: 💾 Restore database cache
+        uses: actions/cache@v4
+        with:
+          path: data/market.db
+          key: market-db-${{ runner.os }}-${{ github.run_number }}
+          restore-keys: |
+            market-db-${{ runner.os }}-
+
+      # Step 5: Run the AI Pipeline
+      - name: 🚀 Execute AI Analysis Pipeline
+        run: python3 ci_runner.py
+        env:
+          # Determine run mode — pre-market just fetches data, post-market does full analysis
+          RUN_MODE: ${{ github.event.inputs.mode || (github.event.schedule == '45 3 * * 1-5' && 'pre_market' || 'post_market') }}
+          TICKERS: ${{ github.event.inputs.tickers || 'RELIANCE.NS,TCS.NS,HDFCBANK.NS,INFY.NS,ICICIBANK.NS,BAJFINANCE.NS,AXISBANK.NS' }}
+
+      # Step 6: Upload results as artifact (access from GitHub UI)
+      - name: 📊 Upload analysis results
+        uses: actions/upload-artifact@v4
+        if: always()  # Upload even if there were partial failures
+        with:
+          name: analysis-results-${{ github.run_number }}
+          path: |
+            data/recommendations.json
+            data/logs/
+          retention-days: 7
+
+      # Step 7: Save the updated database to cache
+      - name: 💾 Save database cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: data/market.db
+          key: market-db-${{ runner.os }}-${{ github.run_number }}
