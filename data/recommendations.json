@@ -1,6 +1,6 @@
 {
   "run_mode": "post_market",
-  "run_at": "2026-04-13T23:43:43.196124",
+  "run_at": "2026-04-14T00:14:34.661860",
   "count": 5,
   "recommendations": [
     {
@@ -10,30 +10,30 @@
         "name": "Reliance Industries",
         "action": "SELL",
         "strategy": "Swing",
-        "entry": 1315.1,
-        "target": 1242.69,
-        "stop": 1351.31,
+        "entry": NaN,
+        "target": NaN,
+        "stop": NaN,
         "confidence": 45,
-        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (39) | R:R 2.0 | ATR \u20b936.2",
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (nan) | R:R nan | ATR \u20b9nan",
         "source": "TA Engine (direct yfinance)"
       },
-      "timestamp": "2026-04-13T23:43:23.152972"
+      "timestamp": "2026-04-14T00:14:16.452861"
     },
     {
       "ticker": "TCS.NS",
       "result": {
         "ticker": "TCS.NS",
         "name": "Tata Consultancy Services",
-        "action": "SELL",
-        "strategy": "Swing",
-        "entry": 2472.6,
-        "target": 2342.77,
-        "stop": 2537.51,
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": NaN,
+        "target": NaN,
+        "stop": NaN,
         "confidence": 45,
-        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (62) | R:R 2.0 | ATR \u20b964.9",
+        "reasoning": "Below EMA 200 (Long-term Downtrend) | RSI Neutral (nan) | R:R nan | ATR \u20b9nan",
         "source": "TA Engine (direct yfinance)"
       },
-      "timestamp": "2026-04-13T23:43:23.548805"
+      "timestamp": "2026-04-14T00:14:16.698517"
     },
     {
       "ticker": "HDFCBANK.NS",
@@ -42,30 +42,30 @@
         "name": "HDFC Bank",
         "action": "SELL",
         "strategy": "Swing",
-        "entry": 794.7,
-        "target": 740.72,
-        "stop": 821.69,
+        "entry": NaN,
+        "target": NaN,
+        "stop": NaN,
         "confidence": 45,
-        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (49) | R:R 2.0 | ATR \u20b927.0",
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (nan) | R:R nan | ATR \u20b9nan",
         "source": "TA Engine (direct yfinance)"
       },
-      "timestamp": "2026-04-13T23:43:23.904707"
+      "timestamp": "2026-04-14T00:14:16.929030"
     },
     {
       "ticker": "INFY.NS",
       "result": {
         "ticker": "INFY.NS",
         "name": "Infosys",
-        "action": "SELL",
-        "strategy": "Swing",
-        "entry": 1276.8,
-        "target": 1199.76,
-        "stop": 1315.32,
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": NaN,
+        "target": NaN,
+        "stop": NaN,
         "confidence": 45,
-        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (61) | R:R 2.0 | ATR \u20b938.5",
+        "reasoning": "Below EMA 200 (Long-term Downtrend) | RSI Neutral (nan) | R:R nan | ATR \u20b9nan",
         "source": "TA Engine (direct yfinance)"
       },
-      "timestamp": "2026-04-13T23:43:24.315609"
+      "timestamp": "2026-04-14T00:14:17.157762"
     },
     {
       "ticker": "ICICIBANK.NS",
@@ -74,56 +74,56 @@
         "name": "ICICI Bank",
         "action": "SELL",
         "strategy": "Swing",
-        "entry": 1351.1,
-        "target": 1275.2,
-        "stop": 1389.05,
+        "entry": NaN,
+        "target": NaN,
+        "stop": NaN,
         "confidence": 45,
-        "reasoning": "Below EMA 200 (Long-term Downtrend) | RSI Neutral (66) | Price above Upper BB \u2014 extended | High volume confirms move | R:R 2.0 | ATR \u20b938.0",
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (nan) | High volume confirms move | R:R nan | ATR \u20b9nan",
         "source": "TA Engine (direct yfinance)"
       },
-      "timestamp": "2026-04-13T23:43:24.677835"
+      "timestamp": "2026-04-14T00:14:17.507336"
     }
   ],
   "headlines": [
     {
       "source": "Moneycontrol",
       "headline": "Buy HDFC Bank; target of Rs 1,850: ICICI Securities",
-      "time": "23:43",
+      "time": "00:14",
       "label": "NEUTRAL",
       "score": 0
     },
     {
       "source": "Moneycontrol",
       "headline": "Buy Tejas Networks; target of Rs 1100: Emkay Global Financial",
-      "time": "23:43",
+      "time": "00:14",
       "label": "NEUTRAL",
       "score": 0
     },
     {
       "source": "Moneycontrol",
       "headline": "Buy Bajaj Finance; target of Rs 9000: Emkay Global Financial",
-      "time": "23:43",
+      "time": "00:14",
       "label": "NEUTRAL",
       "score": 0
     },
     {
       "source": "LiveMint",
       "headline": "LIC board approves issuance of bonus equity shares in 1:1 ratio. Check details",
-      "time": "23:43",
+      "time": "00:14",
       "label": "NEUTRAL",
       "score": 0
     },
     {
       "source": "LiveMint",
       "headline": "US airline stocks fall up to 3% as crude surges on renewed West Asia conflict; Delta, United, American trade in red",
-      "time": "23:43",
+      "time": "00:14",
       "label": "NEUTRAL",
       "score": 0
     },
     {
       "source": "LiveMint",
       "headline": "Goldman sets tone for Q1 earnings season. How markets react is key.",
-      "time": "23:43",
+      "time": "00:14",
       "label": "NEUTRAL",
       "score": 0
     }
