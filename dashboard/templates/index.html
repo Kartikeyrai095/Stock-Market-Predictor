@@ -2,120 +2,447 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antigravity | AI Stock Market Intelligence</title>
-    
-    <!-- Google Fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Antigravity.AI — Indian Market Intelligence</title>
+    <meta name="description" content="AI-powered stock market analysis for NSE/BSE. Real-time recommendations for stocks, mutual funds and options.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Phosphor Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
+
+<!-- Mobile Overlay (closes sidebar) -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">
+            <div class="logo-icon"><i class="ph ph-sparkle-fill"></i></div>
+            <div class="logo-text">
+                <span class="logo-name">Antigravity</span>
+                <span class="logo-sub">.AI</span>
+            </div>
+        </div>
+        <button class="sidebar-close" onclick="closeSidebar()"><i class="ph ph-x"></i></button>
     </div>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="logo">
-            <i class="ph ph-sparkle-fill"></i>
-            <span>Antigravity.AI</span>
-        </div>
-        <nav>
-            <a href="#" class="nav-item active"><i class="ph ph-squares-four"></i> Dashboard</a>
-            <a href="#" class="nav-item"><i class="ph ph-chart-line-up"></i> Strategies</a>
-            <a href="#" class="nav-item"><i class="ph ph-brain"></i> Agent Status</a>
-            <a href="#" class="nav-item"><i class="ph ph-newspaper"></i> News Intel</a>
-            <a href="#" class="nav-item"><i class="ph ph-gear"></i> Settings</a>
-        </nav>
-        <div class="agent-status-panel">
-            <h4>System Health</h4>
-            <div class="status-indicator">
-                <span class="dot active"></span>
-                <span class="text">AI Engine: GitHub Actions</span>
-            </div>
-            <div class="status-indicator" style="margin-top:0.5rem;">
-                <span class="dot active"></span>
-                <span class="text">Dashboard: Render Cloud</span>
-            </div>
-            <div class="last-sync" style="margin-top:0.75rem;">Last AI run: <span id="sync-time">Loading...</span></div>
-        </div>
-    </aside>
+    <nav class="sidebar-nav">
+        <div class="nav-section-label">Main</div>
+        <a href="#" class="nav-item active" data-page="dashboard" onclick="navigate('dashboard', this)">
+            <i class="ph ph-squares-four"></i><span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-item" data-page="recommendations" onclick="navigate('recommendations', this)">
+            <i class="ph ph-target"></i><span>Recommendations</span>
+            <span class="nav-badge" id="rec-count-badge"></span>
+        </a>
+        <a href="#" class="nav-item" data-page="strategies" onclick="navigate('strategies', this)">
+            <i class="ph ph-chart-line-up"></i><span>Strategies</span>
+        </a>
 
-    <!-- Main Content -->
-    <main class="content">
-        <header>
-            <div class="page-title">
-                <h1>Market Overview <span>NSE/BSE</span></h1>
-                <p>AI-driven quantitative analysis for the Indian Market</p>
+        <div class="nav-section-label">Intelligence</div>
+        <a href="#" class="nav-item" data-page="news" onclick="navigate('news', this)">
+            <i class="ph ph-newspaper-clipping"></i><span>News Intel</span>
+        </a>
+        <a href="#" class="nav-item" data-page="agents" onclick="navigate('agents', this)">
+            <i class="ph ph-robot"></i><span>Agent Status</span>
+        </a>
+
+        <div class="nav-section-label">System</div>
+        <a href="#" class="nav-item" data-page="settings" onclick="navigate('settings', this)">
+            <i class="ph ph-gear"></i><span>Settings</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <div class="system-health">
+            <div class="health-row">
+                <span class="health-dot online"></span>
+                <span>AI Engine</span>
+                <span class="health-label">GitHub Actions</span>
             </div>
-            <div class="header-actions">
-                <div class="search-bar">
+            <div class="health-row">
+                <span class="health-dot online"></span>
+                <span>Dashboard</span>
+                <span class="health-label">Render Cloud</span>
+            </div>
+        </div>
+        <div class="last-run-label">Last AI run: <span id="last-run-time">—</span></div>
+    </div>
+</aside>
+
+<!-- Main Wrapper -->
+<div class="main-wrapper" id="main-wrapper">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <button class="hamburger" onclick="toggleSidebar()" id="hamburger-btn">
+                <i class="ph ph-list"></i>
+            </button>
+            <div class="page-breadcrumb">
+                <span class="breadcrumb-icon" id="breadcrumb-icon"><i class="ph ph-squares-four"></i></span>
+                <span id="breadcrumb-title">Dashboard</span>
+            </div>
+        </div>
+        <div class="topbar-right">
+            <div class="search-wrapper" id="search-wrapper">
+                <div class="search-box" id="search-box">
                     <i class="ph ph-magnifying-glass"></i>
-                    <input type="text" placeholder="Search NSE/BSE stocks...">
+                    <input type="text" id="search-input" placeholder="Search stocks, MFs, ETFs..." autocomplete="off">
+                    <button class="search-clear" id="search-clear" onclick="clearSearch()"><i class="ph ph-x"></i></button>
                 </div>
-                <button class="btn-primary"><i class="ph ph-arrows-clockwise"></i> Run Analysis</button>
+                <div class="search-results" id="search-results"></div>
             </div>
-        </header>
+            <button class="btn-run" id="run-btn" onclick="runAnalysis()">
+                <i class="ph ph-play-circle"></i>
+                <span class="btn-run-text">Run Analysis</span>
+            </button>
+        </div>
+    </header>
 
-        <!-- Market Ticker -->
-        <section class="market-ticker grid-3" id="market-overview">
-            <!-- Populated via JS -->
-            <div class="glass-card skeleton"></div>
-            <div class="glass-card skeleton"></div>
-            <div class="glass-card skeleton"></div>
+    <!-- Page Content -->
+    <main class="page-content">
+
+        <!-- ═══ PAGE: Dashboard ═══ -->
+        <section class="page" id="page-dashboard">
+            <div class="page-header">
+                <div>
+                    <h1>Market Overview</h1>
+                    <p class="page-sub">AI-driven quantitative analysis for NSE/BSE</p>
+                </div>
+                <div class="market-status" id="market-status-badge">
+                    <span class="status-dot"></span>
+                    <span id="market-status-text">Checking...</span>
+                </div>
+            </div>
+
+            <!-- Index Cards -->
+            <div class="index-grid" id="market-overview">
+                <div class="index-card-skeleton"></div>
+                <div class="index-card-skeleton"></div>
+                <div class="index-card-skeleton"></div>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="dashboard-grid">
+                <!-- Left: Top Recommendations Preview -->
+                <div class="dash-col-main">
+                    <div class="section-title-row">
+                        <h2><i class="ph ph-target"></i> Top AI Picks Today</h2>
+                        <button class="see-all-btn" onclick="navigate('recommendations', document.querySelector('[data-page=recommendations]'))">
+                            See all <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div id="dashboard-rec-list" class="rec-list-compact"></div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="dash-col-side">
+                    <!-- Conviction Meter -->
+                    <div class="glass-card">
+                        <div class="card-header-row">
+                            <h3><i class="ph ph-gauge"></i> Market Conviction</h3>
+                        </div>
+                        <div class="conviction-wrapper">
+                            <div class="conviction-labels">
+                                <span class="bearish-label">Bearish</span>
+                                <span class="bullish-label">Bullish</span>
+                            </div>
+                            <div class="conviction-track">
+                                <div class="conviction-fill" id="conviction-fill" style="width: 78%"></div>
+                                <div class="conviction-thumb" id="conviction-thumb" style="left: 78%"></div>
+                            </div>
+                            <p class="conviction-value" id="conviction-value">78% Bullish</p>
+                        </div>
+                        <p class="card-sub-text">Ensemble signal across NIFTY 50 (LSTM + Transformer)</p>
+                    </div>
+
+                    <!-- Sentiment Summary -->
+                    <div class="glass-card">
+                        <div class="card-header-row">
+                            <h3><i class="ph ph-brain"></i> FinBERT Sentiment</h3>
+                            <button class="text-btn" onclick="navigate('news', document.querySelector('[data-page=news]'))">View all</button>
+                        </div>
+                        <div id="dash-sentiment-list"></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <div class="main-grid">
-            <!-- Left Column -->
-            <div class="left-col">
-                <section class="recommendations">
-                    <div class="section-header">
-                        <h2><i class="ph ph-target"></i> Live AI Recommendations</h2>
-                        <span class="badge pulse">Live</span>
-                    </div>
-                    <div class="rec-list" id="rec-list">
-                        <!-- Populated via JS -->
-                    </div>
-                </section>
+        <!-- ═══ PAGE: Recommendations ═══ -->
+        <section class="page hidden" id="page-recommendations">
+            <div class="page-header">
+                <div>
+                    <h1>AI Recommendations</h1>
+                    <p class="page-sub">Live signals across Stocks, Mutual Funds &amp; Options</p>
+                </div>
+                <button class="btn-run-sm" onclick="runAnalysis()"><i class="ph ph-arrows-clockwise"></i> Refresh</button>
             </div>
 
-            <!-- Right Column -->
-            <div class="right-col">
-                <!-- Portfolio / AI Confidence -->
-                <section class="glass-card full-card">
-                    <div class="section-header">
-                        <h2><i class="ph ph-chart-polar"></i> Model Conviction</h2>
-                    </div>
-                    <div class="conviction-meter">
-                        <div class="meter-fill" style="width: 78%;"></div>
-                        <span class="meter-text">78% Bearish -> Bullish</span>
-                    </div>
-                    <p class="sub-text">Based on ensemble (LSTM + Transformer) across NIFTY 50</p>
-                </section>
-
-                <!-- News Sentiment -->
-                <section class="glass-card full-card news-section">
-                    <div class="section-header">
-                        <h2><i class="ph ph-newspaper-clipping"></i> FinBERT Sentiment</h2>
-                    </div>
-                    <div class="news-list" id="news-list">
-                        <!-- Populated via JS -->
-                    </div>
-                </section>
+            <!-- Category Tabs -->
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab="stocks" onclick="switchTab('stocks', this)"><i class="ph ph-chart-bar"></i> Stocks</button>
+                <button class="tab-btn" data-tab="mutual_funds" onclick="switchTab('mutual_funds', this)"><i class="ph ph-stack"></i> Mutual Funds</button>
+                <button class="tab-btn" data-tab="options" onclick="switchTab('options', this)"><i class="ph ph-arrows-left-right"></i> Options</button>
+                <button class="tab-btn" data-tab="indices" onclick="switchTab('indices', this)"><i class="ph ph-trend-up"></i> Indices</button>
             </div>
-        </div>
+
+            <!-- Filter row -->
+            <div class="filter-row">
+                <div class="filter-chips">
+                    <button class="chip active" data-filter="all" onclick="filterRecs('all', this)">All</button>
+                    <button class="chip" data-filter="BUY" onclick="filterRecs('BUY', this)">BUY</button>
+                    <button class="chip" data-filter="SELL" onclick="filterRecs('SELL', this)">SELL</button>
+                    <button class="chip" data-filter="HOLD" onclick="filterRecs('HOLD', this)">HOLD</button>
+                </div>
+                <span class="rec-count-label" id="rec-count-label"></span>
+            </div>
+
+            <div class="rec-grid" id="full-rec-list"></div>
+        </section>
+
+        <!-- ═══ PAGE: Strategies ═══ -->
+        <section class="page hidden" id="page-strategies">
+            <div class="page-header">
+                <div>
+                    <h1>Strategy Lab</h1>
+                    <p class="page-sub">Backtested performance metrics across strategies</p>
+                </div>
+            </div>
+
+            <!-- Strategy Cards -->
+            <div class="strategy-overview-grid">
+                <div class="glass-card stat-card">
+                    <div class="stat-icon green"><i class="ph ph-trending-up"></i></div>
+                    <div class="stat-body">
+                        <div class="stat-value" id="strat-total-return">—</div>
+                        <div class="stat-label">Avg Annual Return</div>
+                    </div>
+                </div>
+                <div class="glass-card stat-card">
+                    <div class="stat-icon blue"><i class="ph ph-trophy"></i></div>
+                    <div class="stat-body">
+                        <div class="stat-value" id="strat-win-rate">—</div>
+                        <div class="stat-label">Avg Win Rate</div>
+                    </div>
+                </div>
+                <div class="glass-card stat-card">
+                    <div class="stat-icon red"><i class="ph ph-arrow-down"></i></div>
+                    <div class="stat-body">
+                        <div class="stat-value" id="strat-drawdown">—</div>
+                        <div class="stat-label">Max Drawdown</div>
+                    </div>
+                </div>
+                <div class="glass-card stat-card">
+                    <div class="stat-icon purple"><i class="ph ph-scales"></i></div>
+                    <div class="stat-body">
+                        <div class="stat-value" id="strat-sharpe">—</div>
+                        <div class="stat-label">Avg Sharpe Ratio</div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-h2">Backtested Strategies</h2>
+            <div class="strategy-table-wrap">
+                <table class="data-table" id="strategy-table">
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Strategy</th>
+                            <th>Return %</th>
+                            <th>Win Rate</th>
+                            <th>Sharpe</th>
+                            <th>Max DD</th>
+                            <th>Trades</th>
+                            <th>End Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="strategy-table-body">
+                        <tr><td colspan="8" class="table-loading"><i class="ph ph-circle-notch spin"></i> Loading strategies...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Strategy Signals -->
+            <h2 class="section-h2" style="margin-top:2rem;">Active Strategy Types</h2>
+            <div class="strategy-type-grid">
+                <div class="glass-card strategy-type-card">
+                    <div class="st-icon"><i class="ph ph-arrows-clockwise"></i></div>
+                    <h4>EMA Crossover</h4>
+                    <p>Golden Cross / Death Cross signals on EMA 21/50. Low frequency, high reliability.</p>
+                    <span class="badge-strategy">Active</span>
+                </div>
+                <div class="glass-card strategy-type-card">
+                    <div class="st-icon"><i class="ph ph-brain"></i></div>
+                    <h4>LSTM Prediction</h4>
+                    <p>Deep learning price forecasting over 5-day horizon with confidence scoring.</p>
+                    <span class="badge-strategy">Active</span>
+                </div>
+                <div class="glass-card strategy-type-card">
+                    <div class="st-icon"><i class="ph ph-robot"></i></div>
+                    <h4>RL Trading Agent</h4>
+                    <p>PPO reinforcement learning agent optimized for Sharpe ratio over raw returns.</p>
+                    <span class="badge-strategy">Training</span>
+                </div>
+                <div class="glass-card strategy-type-card">
+                    <div class="st-icon"><i class="ph ph-newspaper-clipping"></i></div>
+                    <h4>FinBERT Sentiment</h4>
+                    <p>NLP signal layer combining news sentiment with technical setup quality.</p>
+                    <span class="badge-strategy">Active</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ PAGE: News Intel ═══ -->
+        <section class="page hidden" id="page-news">
+            <div class="page-header">
+                <div>
+                    <h1>News Intelligence</h1>
+                    <p class="page-sub">FinBERT-powered sentiment analysis across 9 Indian financial feeds</p>
+                </div>
+                <div class="sentiment-summary-badge" id="overall-sentiment-badge">
+                    <i class="ph ph-activity"></i> Loading...
+                </div>
+            </div>
+
+            <!-- Sentiment filters -->
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab="all-news" onclick="filterNews('all', this)">All News</button>
+                <button class="tab-btn" onclick="filterNews('positive', this)"><i class="ph ph-arrow-up"></i> Positive</button>
+                <button class="tab-btn" onclick="filterNews('negative', this)"><i class="ph ph-arrow-down"></i> Negative</button>
+                <button class="tab-btn" onclick="filterNews('neutral', this)"><i class="ph ph-minus"></i> Neutral</button>
+            </div>
+
+            <div class="news-grid" id="full-news-list"></div>
+        </section>
+
+        <!-- ═══ PAGE: Agent Status ═══ -->
+        <section class="page hidden" id="page-agents">
+            <div class="page-header">
+                <div>
+                    <h1>Agent Status</h1>
+                    <p class="page-sub">Real-time health monitoring of all 10 AI agents</p>
+                </div>
+                <div class="agent-overall-status" id="agent-overall">
+                    <span class="health-dot online"></span> All Systems Nominal
+                </div>
+            </div>
+
+            <div class="agents-grid" id="agents-grid"></div>
+        </section>
+
+        <!-- ═══ PAGE: Settings ═══ -->
+        <section class="page hidden" id="page-settings">
+            <div class="page-header">
+                <div>
+                    <h1>Settings</h1>
+                    <p class="page-sub">Configure your AI system preferences</p>
+                </div>
+            </div>
+
+            <div class="settings-grid">
+                <!-- System Info -->
+                <div class="glass-card settings-card">
+                    <h3><i class="ph ph-info"></i> System Information</h3>
+                    <div class="settings-list">
+                        <div class="settings-row"><span>AI Engine</span><span class="settings-val">GitHub Actions (Free)</span></div>
+                        <div class="settings-row"><span>Dashboard Host</span><span class="settings-val">Render.com (Free)</span></div>
+                        <div class="settings-row"><span>Database</span><span class="settings-val">SQLite + JSON</span></div>
+                        <div class="settings-row"><span>ML Models</span><span class="settings-val">LSTM + Transformer + PPO RL</span></div>
+                        <div class="settings-row"><span>NLP Model</span><span class="settings-val">ProsusAI/FinBERT</span></div>
+                        <div class="settings-row"><span>Data Sources</span><span class="settings-val">NSE, BSE, yfinance, 9 RSS feeds</span></div>
+                    </div>
+                </div>
+
+                <!-- Analysis Schedule -->
+                <div class="glass-card settings-card">
+                    <h3><i class="ph ph-clock"></i> Analysis Schedule (IST)</h3>
+                    <div class="settings-list">
+                        <div class="settings-row"><span>Pre-market fetch</span><span class="settings-val badge-time">9:15 AM Mon–Fri</span></div>
+                        <div class="settings-row"><span>Full AI analysis</span><span class="settings-val badge-time">3:35 PM Mon–Fri</span></div>
+                        <div class="settings-row"><span>News refresh</span><span class="settings-val badge-time">Every 10 mins</span></div>
+                        <div class="settings-row"><span>Self-learning cycle</span><span class="settings-val badge-time">4:30 PM Mon–Fri</span></div>
+                        <div class="settings-row"><span>Model retraining</span><span class="settings-val badge-time">8:00 AM Saturday</span></div>
+                    </div>
+                </div>
+
+                <!-- Stock Universe -->
+                <div class="glass-card settings-card">
+                    <h3><i class="ph ph-circles-three"></i> Stock Universe</h3>
+                    <div class="settings-list">
+                        <div class="settings-row"><span>NIFTY 50</span><span class="settings-val">50 stocks</span></div>
+                        <div class="settings-row"><span>NIFTY Next 50</span><span class="settings-val">50 stocks</span></div>
+                        <div class="settings-row"><span>NIFTY Midcap 100</span><span class="settings-val">40 stocks</span></div>
+                        <div class="settings-row"><span>Mutual Funds</span><span class="settings-val">Top 20 equity MFs</span></div>
+                        <div class="settings-row"><span>Options</span><span class="settings-val">NIFTY + BANKNIFTY + Top 10</span></div>
+                    </div>
+                </div>
+
+                <!-- Risk Config -->
+                <div class="glass-card settings-card">
+                    <h3><i class="ph ph-shield-check"></i> Risk Parameters</h3>
+                    <div class="settings-list">
+                        <div class="settings-row"><span>Virtual Capital</span><span class="settings-val">₹10,00,000</span></div>
+                        <div class="settings-row"><span>Max Position Size</span><span class="settings-val">5% per trade</span></div>
+                        <div class="settings-row"><span>Min R:R Ratio</span><span class="settings-val">1:2</span></div>
+                        <div class="settings-row"><span>Min Confidence</span><span class="settings-val">60%</span></div>
+                        <div class="settings-row"><span>Max Drawdown CB</span><span class="settings-val">20%</span></div>
+                        <div class="settings-row"><span>VaR Confidence</span><span class="settings-val">95%</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <!-- Bottom Nav (Mobile only) -->
+    <nav class="bottom-nav" id="bottom-nav">
+        <button class="bottom-nav-item active" data-page="dashboard" onclick="navigate('dashboard', this)">
+            <i class="ph ph-squares-four"></i><span>Home</span>
+        </button>
+        <button class="bottom-nav-item" data-page="recommendations" onclick="navigate('recommendations', this)">
+            <i class="ph ph-target"></i><span>Signals</span>
+        </button>
+        <button class="bottom-nav-item" data-page="news" onclick="navigate('news', this)">
+            <i class="ph ph-newspaper-clipping"></i><span>News</span>
+        </button>
+        <button class="bottom-nav-item" data-page="agents" onclick="navigate('agents', this)">
+            <i class="ph ph-robot"></i><span>Agents</span>
+        </button>
+        <button class="bottom-nav-item" data-page="settings" onclick="navigate('settings', this)">
+            <i class="ph ph-gear"></i><span>Settings</span>
+        </button>
+    </nav>
+</div>
+
+<!-- Run Analysis Modal -->
+<div class="modal-overlay hidden" id="run-modal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3><i class="ph ph-play-circle"></i> Run Analysis</h3>
+            <button onclick="closeModal()"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="modal-body">
+            <p>This triggers the GitHub Actions AI pipeline to run immediately. Results will appear on the dashboard within 15–20 minutes.</p>
+            <div class="modal-info-box">
+                <i class="ph ph-info"></i>
+                <span>For scheduled automatic runs, GitHub Actions runs at <strong>9:15 AM</strong> and <strong>3:35 PM</strong> IST every weekday.</span>
+            </div>
+            <a href="https://github.com/Kartikeyrai095/Stock-Market-Predictor/actions" target="_blank" class="btn-modal-primary">
+                <i class="ph ph-github-logo"></i> Open GitHub Actions
+            </a>
+            <button class="btn-modal-secondary" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
