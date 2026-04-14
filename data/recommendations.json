@@ -1,7 +1,131 @@
 {
-  "run_mode": "pre_market",
-  "run_at": "2026-04-14T11:21:35.521615",
-  "count": 0,
-  "recommendations": [],
-  "headlines": []
+  "run_mode": "post_market",
+  "run_at": "2026-04-14T13:08:48.001483",
+  "count": 5,
+  "recommendations": [
+    {
+      "ticker": "RELIANCE.NS",
+      "result": {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 1315.1,
+        "target": 1242.69,
+        "stop": 1351.31,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (39) | R:R 2.0 | ATR \u20b936.2",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-14T13:08:25.523699"
+    },
+    {
+      "ticker": "TCS.NS",
+      "result": {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 2472.6,
+        "target": 2342.77,
+        "stop": 2537.51,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (62) | R:R 2.0 | ATR \u20b964.9",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-14T13:08:25.894861"
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "result": {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 794.7,
+        "target": 740.72,
+        "stop": 821.69,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (49) | R:R 2.0 | ATR \u20b927.0",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-14T13:08:26.206647"
+    },
+    {
+      "ticker": "INFY.NS",
+      "result": {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 1276.8,
+        "target": 1199.76,
+        "stop": 1315.32,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (61) | R:R 2.0 | ATR \u20b938.5",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-14T13:08:26.546898"
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "result": {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 1351.1,
+        "target": 1275.2,
+        "stop": 1389.05,
+        "confidence": 45,
+        "reasoning": "Below EMA 200 (Long-term Downtrend) | RSI Neutral (66) | Price above Upper BB \u2014 extended | High volume confirms move | R:R 2.0 | ATR \u20b938.0",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-14T13:08:26.930967"
+    }
+  ],
+  "headlines": [
+    {
+      "source": "Moneycontrol",
+      "headline": "Buy HDFC Bank; target of Rs 1,850: ICICI Securities",
+      "time": "13:08",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "Moneycontrol",
+      "headline": "Buy Tejas Networks; target of Rs 1100: Emkay Global Financial",
+      "time": "13:08",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "Moneycontrol",
+      "headline": "Buy Bajaj Finance; target of Rs 9000: Emkay Global Financial",
+      "time": "13:08",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "Gold prices in India fall 6% since US-Iran war: Is this the right time to buy gold?",
+      "time": "13:08",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "Gold price outlook: 6 Reasons why the yellow metal is down 20% from peak: Is this the right time to buy?",
+      "time": "13:08",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "FPI shift: Out of IT, into infra in FY26\u2014what\u2019s in store for FY27?",
+      "time": "13:08",
+      "label": "NEUTRAL",
+      "score": 0
+    }
+  ]
 }
