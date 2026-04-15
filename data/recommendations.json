@@ -1,7 +1,163 @@
 {
-  "run_mode": "pre_market",
-  "run_at": "2026-04-15T11:22:28.493088",
-  "count": 0,
-  "recommendations": [],
-  "headlines": []
+  "run_mode": "post_market",
+  "run_at": "2026-04-15T16:45:24.988587",
+  "count": 7,
+  "recommendations": [
+    {
+      "ticker": "RELIANCE.NS",
+      "result": {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 1344.1,
+        "target": 1273.59,
+        "stop": 1379.36,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (39) | R:R 2.0 | ATR \u20b935.3",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-15T16:45:05.406919"
+    },
+    {
+      "ticker": "TCS.NS",
+      "result": {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": 2554.9,
+        "target": 2655.98,
+        "stop": 2487.51,
+        "confidence": 45,
+        "reasoning": "Below EMA 200 (Long-term Downtrend) | RSI Neutral (66) | R:R 1.5 | ATR \u20b967.4",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-15T16:45:05.575551"
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "result": {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 809.9,
+        "target": 755.91,
+        "stop": 836.9,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (55) | R:R 2.0 | ATR \u20b927.0",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-15T16:45:05.795365"
+    },
+    {
+      "ticker": "INFY.NS",
+      "result": {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": 1305.3,
+        "target": 1363.26,
+        "stop": 1266.66,
+        "confidence": 45,
+        "reasoning": "Below EMA 200 (Long-term Downtrend) | RSI Neutral (60) | R:R 1.5 | ATR \u20b938.6",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-15T16:45:05.970114"
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "result": {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": 1348.1,
+        "target": 1404.44,
+        "stop": 1310.54,
+        "confidence": 45,
+        "reasoning": "Below EMA 200 (Long-term Downtrend) | RSI Neutral (66) | R:R 1.5 | ATR \u20b937.6",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-15T16:45:06.121688"
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "result": {
+        "ticker": "BAJFINANCE.NS",
+        "name": "Bajaj Finance",
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": 913.15,
+        "target": 970.31,
+        "stop": 875.05,
+        "confidence": 45,
+        "reasoning": "Below EMA 200 (Long-term Downtrend) | RSI Neutral (62) | R:R 1.5 | ATR \u20b938.1",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-15T16:45:06.272998"
+    },
+    {
+      "ticker": "AXISBANK.NS",
+      "result": {
+        "ticker": "AXISBANK.NS",
+        "name": "Axis Bank",
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": 1355.5,
+        "target": 1421.38,
+        "stop": 1311.58,
+        "confidence": 45,
+        "reasoning": "Above EMA 200 (Long-term Uptrend) | RSI Overbought (71) \u2014 caution | R:R 1.5 | ATR \u20b943.9",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-15T16:45:06.472055"
+    }
+  ],
+  "headlines": [
+    {
+      "source": "Moneycontrol",
+      "headline": "Buy HDFC Bank; target of Rs 1,850: ICICI Securities",
+      "time": "16:45",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "Moneycontrol",
+      "headline": "Buy Tejas Networks; target of Rs 1100: Emkay Global Financial",
+      "time": "16:45",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "Moneycontrol",
+      "headline": "Buy Bajaj Finance; target of Rs 9000: Emkay Global Financial",
+      "time": "16:45",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "Top Gainers &amp; Losers on April 15: RailTel Corp, Coforge, Anant Raj, Suzlon Energy, Hindustan Zinc among top gainers",
+      "time": "16:45",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "Risk-reward has improved; Indian economy structurally more resilient: Rishabh Nahar of Qode Advisors",
+      "time": "16:45",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "Semiconductor, railway infra stock jumps following Dalal Street rally",
+      "time": "16:45",
+      "label": "NEUTRAL",
+      "score": 0
+    }
+  ]
 }
