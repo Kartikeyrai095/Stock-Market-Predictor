@@ -1,7 +1,7 @@
 {
   "run_mode": "post_market",
-  "run_at": "2026-04-24T14:32:43.296005",
-  "count": 5,
+  "run_at": "2026-04-24T16:51:03.803003",
+  "count": 7,
   "recommendations": [
     {
       "ticker": "RELIANCE.NS",
@@ -10,14 +10,14 @@
         "name": "Reliance Industries",
         "action": "SELL",
         "strategy": "Swing",
-        "entry": 1329.6,
-        "target": 1272.43,
-        "stop": 1358.19,
+        "entry": 1327.8,
+        "target": 1270.41,
+        "stop": 1356.49,
         "confidence": 45,
-        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (46) | R:R 2.0 | ATR \u20b928.6",
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (46) | R:R 2.0 | ATR \u20b928.7",
         "source": "TA Engine (direct yfinance)"
       },
-      "timestamp": "2026-04-24T14:32:20.360919"
+      "timestamp": "2026-04-24T16:50:43.167419"
     },
     {
       "ticker": "TCS.NS",
@@ -26,14 +26,14 @@
         "name": "Tata Consultancy Services",
         "action": "SELL",
         "strategy": "Swing",
-        "entry": 2398.1,
-        "target": 2267.41,
-        "stop": 2463.44,
+        "entry": 2396.9,
+        "target": 2266.21,
+        "stop": 2462.24,
         "confidence": 45,
         "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (46) | R:R 2.0 | ATR \u20b965.3",
         "source": "TA Engine (direct yfinance)"
       },
-      "timestamp": "2026-04-24T14:32:20.666688"
+      "timestamp": "2026-04-24T16:50:43.417415"
     },
     {
       "ticker": "HDFCBANK.NS",
@@ -42,14 +42,14 @@
         "name": "HDFC Bank",
         "action": "SELL",
         "strategy": "Swing",
-        "entry": 783.7,
-        "target": 741.36,
-        "stop": 804.87,
+        "entry": 784.85,
+        "target": 742.51,
+        "stop": 806.02,
         "confidence": 45,
-        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (58) | R:R 2.0 | ATR \u20b921.2",
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (59) | R:R 2.0 | ATR \u20b921.2",
         "source": "TA Engine (direct yfinance)"
       },
-      "timestamp": "2026-04-24T14:32:20.986276"
+      "timestamp": "2026-04-24T16:50:43.670755"
     },
     {
       "ticker": "INFY.NS",
@@ -58,14 +58,14 @@
         "name": "Infosys",
         "action": "SELL",
         "strategy": "Swing",
-        "entry": 1155.1,
-        "target": 1076.5,
-        "stop": 1194.4,
+        "entry": 1154.6,
+        "target": 1076.0,
+        "stop": 1193.9,
         "confidence": 45,
         "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Oversold (27) \u2014 potential reversal | Price below Lower BB \u2014 potential bounce | R:R 2.0 | ATR \u20b939.3",
         "source": "TA Engine (direct yfinance)"
       },
-      "timestamp": "2026-04-24T14:32:21.298423"
+      "timestamp": "2026-04-24T16:50:43.919695"
     },
     {
       "ticker": "ICICIBANK.NS",
@@ -74,56 +74,88 @@
         "name": "ICICI Bank",
         "action": "HOLD",
         "strategy": "Positional",
-        "entry": 1329.8,
-        "target": 1383.6,
-        "stop": 1293.94,
+        "entry": 1326.2,
+        "target": 1380.11,
+        "stop": 1290.26,
         "confidence": 45,
-        "reasoning": "Below EMA 200 (Long-term Downtrend) | RSI Neutral (69) | R:R 1.5 | ATR \u20b935.9",
+        "reasoning": "Below EMA 200 (Long-term Downtrend) | RSI Neutral (68) | R:R 1.5 | ATR \u20b935.9",
         "source": "TA Engine (direct yfinance)"
       },
-      "timestamp": "2026-04-24T14:32:21.672438"
+      "timestamp": "2026-04-24T16:50:44.148359"
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "result": {
+        "ticker": "BAJFINANCE.NS",
+        "name": "Bajaj Finance",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 921.55,
+        "target": 864.97,
+        "stop": 949.84,
+        "confidence": 45,
+        "reasoning": "Below EMA 200 (Long-term Downtrend) | RSI Overbought (71) \u2014 caution | R:R 2.0 | ATR \u20b928.3",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-24T16:50:44.388133"
+    },
+    {
+      "ticker": "AXISBANK.NS",
+      "result": {
+        "ticker": "AXISBANK.NS",
+        "name": "Axis Bank",
+        "action": "BUY",
+        "strategy": "Swing",
+        "entry": 1365.9,
+        "target": 1435.69,
+        "stop": 1331.01,
+        "confidence": 60.0,
+        "reasoning": "EMA 9>21>50 Bullish Alignment | Above EMA 200 (Long-term Uptrend) | RSI Overbought (84) \u2014 caution | R:R 2.0 | ATR \u20b934.9",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-24T16:50:44.631663"
     }
   ],
   "headlines": [
     {
       "source": "Moneycontrol",
       "headline": "Buy HDFC Bank; target of Rs 1,850: ICICI Securities",
-      "time": "14:32",
+      "time": "16:51",
       "label": "NEUTRAL",
       "score": 0
     },
     {
       "source": "Moneycontrol",
       "headline": "Buy Tejas Networks; target of Rs 1100: Emkay Global Financial",
-      "time": "14:32",
+      "time": "16:51",
       "label": "NEUTRAL",
       "score": 0
     },
     {
       "source": "Moneycontrol",
       "headline": "Buy Bajaj Finance; target of Rs 9000: Emkay Global Financial",
-      "time": "14:32",
+      "time": "16:51",
       "label": "NEUTRAL",
       "score": 0
     },
     {
       "source": "LiveMint",
-      "headline": "Hindustan Zinc Q4 Results 2026: Net profit soars around 68% to  \u20b95,033 crore; first interim dividend of  \u20b911 declared",
-      "time": "14:32",
+      "headline": "Small-cap stock Krystal Integrated Services jumps 2.5% despite stock market sell-off",
+      "time": "16:51",
       "label": "NEUTRAL",
       "score": 0
     },
     {
       "source": "LiveMint",
-      "headline": "J.P.Morgan downgrades India equities to 'neutral' on oil-led earnings risks, cuts Nifty year-end target by 10%",
-      "time": "14:32",
+      "headline": "\u2018Would love to own it, but\u2026\u2019: Aswath Damodaran flags $1.75 trillion valuation for SpaceX ahead of IPO",
+      "time": "16:51",
       "label": "NEUTRAL",
       "score": 0
     },
     {
       "source": "LiveMint",
-      "headline": "Infosys and peers disappoint. Is FY27 IT revenue revival hope a pie-in-the-sky?",
-      "time": "14:32",
+      "headline": "Top Gainers &amp; Losers on April 24: Anant Raj, Infosys, Cyient, Ceat, HCL Tech, Coforge among top losers",
+      "time": "16:51",
       "label": "NEUTRAL",
       "score": 0
     }
