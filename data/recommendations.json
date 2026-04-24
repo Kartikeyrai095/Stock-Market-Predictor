@@ -1,7 +1,131 @@
 {
-  "run_mode": "pre_market",
-  "run_at": "2026-04-24T11:28:50.848204",
-  "count": 0,
-  "recommendations": [],
-  "headlines": []
+  "run_mode": "post_market",
+  "run_at": "2026-04-24T14:32:43.296005",
+  "count": 5,
+  "recommendations": [
+    {
+      "ticker": "RELIANCE.NS",
+      "result": {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 1329.6,
+        "target": 1272.43,
+        "stop": 1358.19,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (46) | R:R 2.0 | ATR \u20b928.6",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-24T14:32:20.360919"
+    },
+    {
+      "ticker": "TCS.NS",
+      "result": {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 2398.1,
+        "target": 2267.41,
+        "stop": 2463.44,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (46) | R:R 2.0 | ATR \u20b965.3",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-24T14:32:20.666688"
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "result": {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 783.7,
+        "target": 741.36,
+        "stop": 804.87,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (58) | R:R 2.0 | ATR \u20b921.2",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-24T14:32:20.986276"
+    },
+    {
+      "ticker": "INFY.NS",
+      "result": {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 1155.1,
+        "target": 1076.5,
+        "stop": 1194.4,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Oversold (27) \u2014 potential reversal | Price below Lower BB \u2014 potential bounce | R:R 2.0 | ATR \u20b939.3",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-24T14:32:21.298423"
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "result": {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": 1329.8,
+        "target": 1383.6,
+        "stop": 1293.94,
+        "confidence": 45,
+        "reasoning": "Below EMA 200 (Long-term Downtrend) | RSI Neutral (69) | R:R 1.5 | ATR \u20b935.9",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-04-24T14:32:21.672438"
+    }
+  ],
+  "headlines": [
+    {
+      "source": "Moneycontrol",
+      "headline": "Buy HDFC Bank; target of Rs 1,850: ICICI Securities",
+      "time": "14:32",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "Moneycontrol",
+      "headline": "Buy Tejas Networks; target of Rs 1100: Emkay Global Financial",
+      "time": "14:32",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "Moneycontrol",
+      "headline": "Buy Bajaj Finance; target of Rs 9000: Emkay Global Financial",
+      "time": "14:32",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "Hindustan Zinc Q4 Results 2026: Net profit soars around 68% to  \u20b95,033 crore; first interim dividend of  \u20b911 declared",
+      "time": "14:32",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "J.P.Morgan downgrades India equities to 'neutral' on oil-led earnings risks, cuts Nifty year-end target by 10%",
+      "time": "14:32",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "Infosys and peers disappoint. Is FY27 IT revenue revival hope a pie-in-the-sky?",
+      "time": "14:32",
+      "label": "NEUTRAL",
+      "score": 0
+    }
+  ]
 }
