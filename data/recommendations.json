@@ -1,7 +1,163 @@
 {
-  "run_mode": "pre_market",
-  "run_at": "2026-05-07T11:57:40.449506",
-  "count": 0,
-  "recommendations": [],
-  "headlines": []
+  "run_mode": "post_market",
+  "run_at": "2026-05-07T17:32:40.205153",
+  "count": 7,
+  "recommendations": [
+    {
+      "ticker": "RELIANCE.NS",
+      "result": {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": 1436.2,
+        "target": 1480.31,
+        "stop": 1406.79,
+        "confidence": 45,
+        "reasoning": "EMA 9>21>50 Bullish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (66) | R:R 1.5 | ATR \u20b929.4",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-07T17:32:18.893491"
+    },
+    {
+      "ticker": "TCS.NS",
+      "result": {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 2401.4,
+        "target": 2284.9,
+        "stop": 2459.65,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Oversold (29) \u2014 potential reversal | R:R 2.0 | ATR \u20b958.2",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-07T17:32:19.055368"
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "result": {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 796.05,
+        "target": 766.52,
+        "stop": 810.81,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (48) | R:R 2.0 | ATR \u20b914.8",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-07T17:32:19.260259"
+    },
+    {
+      "ticker": "INFY.NS",
+      "result": {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 1162.7,
+        "target": 1101.06,
+        "stop": 1193.52,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Oversold (21) \u2014 potential reversal | R:R 2.0 | ATR \u20b930.8",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-07T17:32:19.465958"
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "result": {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 1279.0,
+        "target": 1231.31,
+        "stop": 1302.84,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Oversold (35) \u2014 potential reversal | R:R 2.0 | ATR \u20b923.8",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-07T17:32:19.621566"
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "result": {
+        "ticker": "BAJFINANCE.NS",
+        "name": "Bajaj Finance",
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": 972.75,
+        "target": 1006.48,
+        "stop": 950.26,
+        "confidence": 45,
+        "reasoning": "EMA 9>21>50 Bullish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Overbought (77) \u2014 caution | R:R 1.5 | ATR \u20b922.5",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-07T17:32:19.818015"
+    },
+    {
+      "ticker": "AXISBANK.NS",
+      "result": {
+        "ticker": "AXISBANK.NS",
+        "name": "Axis Bank",
+        "action": "BUY",
+        "strategy": "Swing",
+        "entry": 1292.7,
+        "target": 1352.71,
+        "stop": 1262.69,
+        "confidence": 60.0,
+        "reasoning": "Above EMA 200 (Long-term Uptrend) | RSI Oversold (34) \u2014 potential reversal | R:R 2.0 | ATR \u20b930.0",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-07T17:32:20.655586"
+    }
+  ],
+  "headlines": [
+    {
+      "source": "Moneycontrol",
+      "headline": "Buy HDFC Bank; target of Rs 1,850: ICICI Securities",
+      "time": "17:32",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "Moneycontrol",
+      "headline": "Buy Tejas Networks; target of Rs 1100: Emkay Global Financial",
+      "time": "17:32",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "Moneycontrol",
+      "headline": "Buy Bajaj Finance; target of Rs 9000: Emkay Global Financial",
+      "time": "17:32",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "Dabur India Q4 Results: Profit beats estimates, rises 16% YoY to  \u20b9362 crore, declares final dividend of  \u20b95.5",
+      "time": "17:32",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "Multibagger stock KEI Industries under income tax department's scanner. Check details",
+      "time": "17:32",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "LIC Portfolio Rejig: SBI, Coal India among top 10 stocks that India's biggest DII sold in March quarter",
+      "time": "17:32",
+      "label": "NEUTRAL",
+      "score": 0
+    }
+  ]
 }

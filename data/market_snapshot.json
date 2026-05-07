@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-05-07T11:57:37.787019",
+  "generated_at": "2026-05-07T17:32:18.687353",
   "indices": {
     "NIFTY_50": {
-      "price": 24328.35,
-      "change": -0.01
+      "price": 24326.65,
+      "change": -0.02
     },
     "SENSEX": {
-      "price": 77803.51,
-      "change": -0.2
+      "price": 77844.52,
+      "change": -0.15
     },
     "BANK_NIFTY": {
-      "price": 55853.45,
-      "change": -0.23
+      "price": 56047.4,
+      "change": 0.12
     }
   }
 }
