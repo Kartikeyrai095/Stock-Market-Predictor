@@ -1,7 +1,142 @@
 {
-  "run_mode": "pre_market",
-  "run_at": "2026-05-13T12:11:24.024925",
-  "count": 0,
-  "recommendations": [],
-  "headlines": []
+  "run_mode": "post_market",
+  "run_at": "2026-05-13T17:52:04.651458",
+  "count": 7,
+  "recommendations": [
+    {
+      "ticker": "RELIANCE.NS",
+      "result": {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 1358.8,
+        "target": 1292.34,
+        "stop": 1392.03,
+        "confidence": 45,
+        "reasoning": "Below EMA 200 (Long-term Downtrend) | \ud83d\udd34 Death Cross (EMA 21 crossed below EMA 50) | RSI Neutral (53) | R:R 2.0 | ATR \u20b933.2",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-13T17:51:45.012847"
+    },
+    {
+      "ticker": "TCS.NS",
+      "result": {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": 2272.8,
+        "target": 2359.01,
+        "stop": 2215.33,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Oversold (21) \u2014 potential reversal | Price below Lower BB \u2014 potential bounce | R:R 1.5 | ATR \u20b957.5",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-13T17:51:45.193491"
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "result": {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": 749.6,
+        "target": 771.12,
+        "stop": 735.25,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Oversold (34) \u2014 potential reversal | Price below Lower BB \u2014 potential bounce | R:R 1.5 | ATR \u20b914.3",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-13T17:51:45.517480"
+    },
+    {
+      "ticker": "INFY.NS",
+      "result": {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 1123.1,
+        "target": 1065.34,
+        "stop": 1151.98,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Oversold (27) \u2014 potential reversal | R:R 2.0 | ATR \u20b928.9",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-13T17:51:45.828294"
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "result": {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 1235.6,
+        "target": 1190.74,
+        "stop": 1258.03,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Oversold (20) \u2014 potential reversal | R:R 2.0 | ATR \u20b922.4",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-13T17:51:46.210425"
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "result": {
+        "ticker": "BAJFINANCE.NS",
+        "name": "Bajaj Finance",
+        "action": "HOLD",
+        "strategy": "Positional",
+        "entry": 896.15,
+        "target": 930.22,
+        "stop": 873.44,
+        "confidence": 45,
+        "reasoning": "EMA 9>21>50 Bullish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Neutral (42) | R:R 1.5 | ATR \u20b922.7",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-13T17:51:46.412458"
+    },
+    {
+      "ticker": "AXISBANK.NS",
+      "result": {
+        "ticker": "AXISBANK.NS",
+        "name": "Axis Bank",
+        "action": "SELL",
+        "strategy": "Swing",
+        "entry": 1255.7,
+        "target": 1194.41,
+        "stop": 1286.34,
+        "confidence": 45,
+        "reasoning": "EMA 9<21<50 Bearish Alignment | Below EMA 200 (Long-term Downtrend) | RSI Oversold (24) \u2014 potential reversal | R:R 2.0 | ATR \u20b930.6",
+        "source": "TA Engine (direct yfinance)"
+      },
+      "timestamp": "2026-05-13T17:51:46.625262"
+    }
+  ],
+  "headlines": [
+    {
+      "source": "LiveMint",
+      "headline": "Sebi weighs wider net for intraday borrowing by mutual funds",
+      "time": "17:52",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "Gold import duty hike in focus: Are gold ETFs poised to gain traction after this move?",
+      "time": "17:52",
+      "label": "NEUTRAL",
+      "score": 0
+    },
+    {
+      "source": "LiveMint",
+      "headline": "Bharti Airtel Q4 Results: Net profit rises 10.5% QoQ to  \u20b97,325 crore. Here are key highlights",
+      "time": "17:52",
+      "label": "NEUTRAL",
+      "score": 0
+    }
+  ]
 }
